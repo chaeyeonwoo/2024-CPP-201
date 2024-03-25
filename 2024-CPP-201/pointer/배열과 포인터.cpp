@@ -8,5 +8,8 @@ int main(void) {
 	printf("%d %d\n", &arr[0], &arr[1]);
 
 	// 1바이트 차이(x86으로 설정하면 더 좋아요)
-	printf("%d %d\n", &str[0], &str[1]);
+	//printf("%d %d\n", &str[0], &str[1]);
+
+	// 
+	printf("%d %d\n", arr, arr+1);
 }
