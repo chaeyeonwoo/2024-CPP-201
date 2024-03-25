@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void call_by_value(int a) {
+void call_by_value(int * a) {
 	// 새로운 지역변수 a를 만들고 거기에 값을 넣는다.
 	a = 10;
 }
