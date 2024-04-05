@@ -1,9 +1,9 @@
-﻿#include <stdio.h>
-#include <string.h>
-
+﻿#include <iostream>
+#include <string>
+using namespace std;
 void main(void) {
-	char str[100] = "Juyoung";
+	string str= "Juyoung";
 	// 문자열 추가
-	strcat(str, " is pretty👌👌");
-	printf("%s", str);
+	str += " is pretty";
+	cout << str;
 }
