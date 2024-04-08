@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pointer\02-04 문자열 추가.cpp" />
+    <ClCompile Include="pointer\02-05 문자열 비교.cpp" />
+    <ClCompile Include="pointer\02-05-01 문자열 길이.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
