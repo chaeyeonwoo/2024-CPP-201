@@ -2,16 +2,23 @@
 #include <string>
 using namespace std;
 
-// 구조체는 디폴트가 public이여서 가능함.
+// 클래스는 디폴트가 private이여서 가능함.
 
-struct Student {
+class Student {
+public:
+	// 생성자 : 객체를 생성할 때 호출되는 함수
+	// 반환형이 없다. return x
+	 Student(int hakbun, string name) {
+		hakbun_ = hakbun;
+		name_ = name;
+	}
+private:
 	int hakbun_;
 	string name_;
 };
 
 void main(void) {
-
-	struct juyoung;
-	juyoung.hakbun_ = 2115;
-	juyoung.name_ = "윤주영";
+	// 매개변수가 없는 생성자를 호출
+	// Student juyoung = Student();
+	 Student juyoung = Student(2115, "윤주영");
 }
