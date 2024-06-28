@@ -4,25 +4,30 @@
 // Ball 클래스 정의
 class Ball {
 public:
-    sf::CircleShape shape;
-    sf::Vector2f velocity;
-
+    sf::CircleShape shape;  // 공의 외형(모양)
+    sf::Vector2f velocity;  // 공의 속도
+    
     Ball(float mX, float mY) {
-        shape.setPosition(mX, mY);
-        shape.setRadius(10.f);
-        shape.setFillColor(sf::Color::Red);
+        shape.setPosition(mX, mY);  // 초기 위치, 좌표 
+        shape.setRadius(10.f);  // 픽셀, 반지름
+        shape.setFillColor(sf::Color::Magenta); // 색깔
         shape.setOrigin(10.f, 10.f);
-        velocity = { -8.f, -8.f };
+        velocity = { -8.f, -8.f };  // 속도
     }
 
-    void update() {
+    void update() { // 종합주석 ctrl + k + ctrl + c 주석 해제 ctrl + k + ctrl + u
+        // 공을 움직이게 함
         shape.move(velocity);
 
-        if (left() < 0) velocity.x = 8.f;
-        else if (right() > 800) velocity.x = -8.f;
+        if (left() < 0)
+            velocity.x = 8.f;
+        else if (right() > 800) 
+            velocity.x = -8.f;
 
-        if (top() < 0) velocity.y = 8.f;
-        else if (bottom() > 600) velocity.y = -8.f;
+        if (top() < 0) 
+            velocity.y = 8.f;
+        else if (bottom() > 600) 
+            velocity.y = -8.f;
     }
 
     float left() { return shape.getPosition().x - shape.getRadius(); }
@@ -37,16 +42,17 @@ public:
     sf::RectangleShape shape;
     const float paddleWidth = 100.f;
     const float paddleHeight = 20.f;
-    const float paddleVelocity = 10.f;
+    const float paddleVelocity = 10.f;  // paddle은 가로로만 움직이기 때문
 
     Paddle(float mX, float mY) {
         shape.setPosition(mX, mY);
-        shape.setSize({ paddleWidth, paddleHeight });
+        shape.setSize({ paddleWidth, paddleHeight }); // 사각형
         shape.setFillColor(sf::Color::Blue);
-        shape.setOrigin(paddleWidth / 2.f, paddleHeight / 2.f);
+        shape.setOrigin(paddleWidth / 2.f, paddleHeight / 2.f); // 기준점을 중심으로
     }
 
     void update() {
+        // 왼쪽 화살표 키를 누르고 $$ 왼쪽 벽에 닿지 않을 때
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && left() > 0) {
             shape.move(-paddleVelocity, 0.f);
         }
@@ -83,8 +89,8 @@ const float brickWidth = 60.f;
 const float brickHeight = 20.f;
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Brick Breaker");
-    window.setFramerateLimit(60);
+    sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Brick Breaker"); // 창의 크기, 창의 이름
+    window.setFramerateLimit(60);   // 컴퓨터의 성능 제한하려고, 컴퓨터의 성능에 영향을 받지 않기 위해서 1초에 60 프레임으로 제한
 
     Ball ball(windowWidth / 2, windowHeight / 2);
     Paddle paddle(windowWidth / 2, windowHeight - 50);
@@ -102,12 +108,13 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
+        // update
         ball.update();
         paddle.update();
-
+           
+        // 공과 패들의 충돌처리
         if (ball.shape.getGlobalBounds().intersects(paddle.shape.getGlobalBounds())) {
-            ball.velocity.y = -ball.velocity.y;
+           ball.velocity.y = -ball.velocity.y;
         }
 
         for (auto& brick : bricks) {
@@ -117,7 +124,7 @@ int main() {
                 brick.destroyed = true;
             }
         }
-
+        // draw
         window.clear();
         window.draw(ball.shape);
         window.draw(paddle.shape);
