@@ -5,6 +5,9 @@ using namespace std;
 // 다형성 -> 상속 -> 상속을 하기 위해서는 클래스 2개 이상 필요
 class Animal {
 public:
+	Animal() {
+
+	}
 	Animal(string name, unsigned int age)
 		: name_(name), age_(age)
 		// 멤버 변수 초기화
@@ -28,6 +31,21 @@ private://맴버 변수 (속성) (행위x)
 };
 class Human : public Animal {
 public:
+	// 부모(Animal) 생성자가 먼저 호출된다.
+	Human(string name, unsigned int age, bool right)
+		: Animal(name, age), right_(right)
+	{
+		cout << "인권 존재 여부" << right_  << endl;
+	}
+	void bark() {
+		cout << "톡톡" << endl;
+	}
+	void sleep() {
+		cout << "쿨쿨" << endl;
+	}
+	void eat() {
+		cout << "얌얌" << endl;
+	}
 private:
 	bool right_;
 };
@@ -37,5 +55,13 @@ void main(void) {
 	ani->bark();
 	ani->eat();
 	ani->sleep();
+
+	Human* hum = new Human("지혜레이디", 18, true);
+	hum->bark();
+	hum->eat();
+	hum->sleep();
+
+	delete hum;
 	delete ani;
+	
 }
