@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main2.cpp">
+    <ClCompile Include="..\2024-CPP-201\05-02 다형성.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
