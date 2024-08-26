@@ -15,6 +15,9 @@ public:
 		cout << "이름 " << name_ << endl;
 		cout << "나이 " << age_ << endl;
 	}
+	virtual ~Animal() { // 소멸자 ~ 매개변수X
+		cout << "Animal 소멸자" << endl;
+	}
 	virtual void bark() {
 		cout << "잘 짖는다" << endl;
 	}
@@ -37,7 +40,9 @@ public:
 	{
 		cout << "인권 존재 여부" << right_  << endl;
 	}
-
+	virtual ~Human() { // 소멸자 ~ 매개변수X
+		cout << "Human 소멸자" << endl;
+	}
 	// TODO : 정적 바인딩을 동적바인딩으로 고치기
 	void bark() override {
 		cout << "톡톡" << endl;
