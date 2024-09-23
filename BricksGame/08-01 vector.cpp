@@ -6,13 +6,14 @@ using namespace std;
 
 void main(void) {
 	vector<string> cy;
-
+	// 미리 벡터의 크기를 지정하는 것이 좋다(성능 이슈)
+	cy.reserve(100);
+	
 	// 요소 추가
 	cy.push_back("채연");
 	cy.push_back("해인");
 	cy.push_back("우석");
 	cy.push_back("덱스");
-	cy.push_back("서준");
 	cy.push_back("정국");
 
 	// 요소 접근
