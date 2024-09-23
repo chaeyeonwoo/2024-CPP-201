@@ -33,4 +33,8 @@ void main(void) {
 	cout << cy[0] << "의 남자들★★★★★★" << endl;
 	for (int i = 1; i < cy.size(); i++)
 		cout << cy[i] << endl;
+
+	vector<string>::iterator iter;
+	for (iter = cy.begin(); iter!=cy.end(); iter++)
+		cout << *iter << endl;
 }
