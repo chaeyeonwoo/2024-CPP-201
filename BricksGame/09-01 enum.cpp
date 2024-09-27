@@ -29,7 +29,7 @@ enum FoodStyle {
 	CHINESE }; // 2
 
 void main(void) {
-	FoodStyle style = KOREAN;
+	int style = FoodStyle::KOREAN;
 
 	switch (style)
 	{
