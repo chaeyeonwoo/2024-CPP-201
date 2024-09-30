@@ -29,8 +29,8 @@ enum FoodStyle {
 	CHINESE }; // 2
 
 void main(void) {
-	int style = FoodStyle::KOREAN;
-
+	FoodStyle style = FoodStyle::KOREAN;
+	
 	switch (style)
 	{
 	case KOREAN:
