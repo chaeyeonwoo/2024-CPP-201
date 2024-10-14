@@ -34,7 +34,7 @@ void main(void) {
 	for (int i = 1; i < cy.size(); i++)
 		cout << cy[i] << endl;
 
-	vector<string>::iterator iter;
-	for (iter = cy.begin(); iter!=cy.end(); iter++)
+	// vector<string>::iterator iter;
+	for (auto iter = cy.begin(); iter!=cy.end(); iter++)
 		cout << *iter << endl;
 }
