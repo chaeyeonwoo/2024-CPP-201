@@ -3,8 +3,8 @@
 using namespace sf;
 using namespace std;
 
-#define WINDOW_WIDTH 1200
-#define WINDOW_HIGHT 800
+const int WINDOW_WIDTH = 1200;
+const int WINDOW_HIGHT = 800;
 void main(void) 
 {
 	RenderWindow window(VideoMode(WINDOW_WIDTH,WINDOW_HIGHT), "Project");
