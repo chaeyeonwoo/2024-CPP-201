@@ -18,6 +18,16 @@ void main(void)
 	player.setPosition((App::WIDTH - player.getSize().x) / 2, (App::HEIGHT - player.getSize().y) / 2);
 	player.setFillColor(Color::Magenta);
 
+	Font font;
+	font.loadFromFile("gulim.ttc");
+
+	Text text;
+	text.setFont(font);
+	text.setCharacterSize(50);
+	text.setString("bibim");
+	text.setFillColor(Color::Red);
+	text.setPosition(App::WIDTH-text.getGlobalBounds().width-5, 0.f);
+
 	while (window.isOpen())
 	{
 		Event event;
@@ -37,6 +47,7 @@ void main(void)
 			player.move(0.f, 10.f);
 		window.clear(Color::White);
 		window.draw(player);
+		window.draw(text);
 		window.display();
 
 	}
