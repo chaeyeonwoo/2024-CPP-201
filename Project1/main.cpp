@@ -11,7 +11,8 @@ const int WINDOW_HIGHT = 800;
 void main(void) 
 {
 	RenderWindow window(VideoMode(App::WIDTH, App::HEIGHT), "Project");
-
+	// 초당 프레임 조절(컴퓨터 성능과 상관 없이 일정한 속도)
+	window.setFramerateLimit(60);
 	RectangleShape player;
 	player.setSize(Vector2f(200.f, 200.f));
 	player.setPosition((App::WIDTH - player.getSize().x) / 2, (App::HEIGHT - player.getSize().y) / 2);
